@@ -8,29 +8,87 @@
 </head>
 <body>
     <nav>
-        <img class="header-logo" src="./img/CT.png" alt="logo" >
-        <a href="#">Home</a>
-        <a href="#">What's On</a>
-        <a href="#">About Us</a>
-        <a href="#">Socials</a>
+        <img class="header-logo" src="./img/N.png" alt="logo" >
+        <section >
+        <a href="index.html">Home</a>
+        <a href="whatson.html">What's On</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="socials.html">Socials</a>
+    </section>
     </nav>
     
 
     <!-- Your content goes here -->
-    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-
-    
-
-
+    <main>
 <header>
-    Het Calter Museum
+    Nxt Museum
 </header>
-
-
-
-
+<p>
+    The home of new media art.
+    Discover large scale, multi-sensory exhibitions which challenge assumptions and open minds.
+    We seek, show and question what is Nxt.
 </p>
-  text 
-</p>
+    </main>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <style>
+        /* Style for the language selector */
+        #langSelector {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 999;
+            padding: 8px;
+            background-color: white;
+            color:black;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Style for the translated content */
+        #content {
+            margin-top: 40px; /* Adjust the margin based on your design */
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color:black;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Language Selector -->
+<select id="langSelector">
+    <option value="nl">NL</option>
+    <option value="en">EN</option>
+</select>
+
+<!-- Content to be translated -->
+<div id="content">
+    <p>Example Dutch content</p>
+</div>
+
+<!-- Google Translate Element -->
+<div id="google_translate_element"></div>
+
+<script>
+    // Initialize Google Translate
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'nl', autoDisplay: false}, 'google_translate_element');
+    }
+
+    // Change language on selection change
+    document.getElementById('langSelector').addEventListener('change', function() {
+        var selectedLang = this.value;
+        var content = document.getElementById('content').innerHTML;
+
+        // Use the Google Translate API to translate the content
+        google.translate.translate({text: content, source: 'nl', target: selectedLang}, function(result) {
+            document.getElementById('content').innerHTML = result.translation;
+        });
+    });
+</script>
+
 </body>
 </html>
