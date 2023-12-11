@@ -9,11 +9,19 @@ body {
 }
 
 main{
-    background-image: url(img/ok.jpg);
     background-size: cover;
     flex-grow: 1;
+
+}
+.indexmain{
+    background-image: url(img/ok.jpg);
 }
 
+.aboutmain{
+    background-image: url(img/Schermafdruk.jpg); 
+    
+    
+}
 header {
     color: #ffffff;
     padding: 20px 10px 0px 10px;
@@ -77,4 +85,3 @@ p{
     margin: 0;
     text-align: left;
 }
-
