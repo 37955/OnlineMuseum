@@ -25,6 +25,13 @@ main{
 .socialsmain{ 
     background-image: url(img/nxt.jpg); 
 
+}
+
+.ticket-button{
+    background-image: url(img/Tickets.png);
+    background-color: black;
+
+
 
 
 
