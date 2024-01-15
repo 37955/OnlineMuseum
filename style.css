@@ -19,6 +19,21 @@ main{
 
 .aboutmain{
     background-image: url(img/Schermafdruk.jpg); 
+
+}
+
+.socialsmain{ 
+    background-image: url(img/nxt.jpg); 
+
+
+
+
+    
+
+    
+
+
+    
     
     
 }
@@ -85,3 +100,5 @@ p{
     margin: 0;
     text-align: left;
 }
+
+  

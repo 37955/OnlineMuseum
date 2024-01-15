@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Museum Website</title>
     <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <style>
         /* Style for the language selector */
@@ -16,7 +18,7 @@
             z-index: 999;
             padding: 8px;
             background-color: white;
-            color:black;
+            color: black;
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -24,70 +26,79 @@
 
         /* Style for the translated content */
         #content {
-            margin-top: 40px; /* Adjust the margin based on your design */
+            margin-top: 40px;
+            /* Adjust the margin based on your design */
             font-family: 'Arial', sans-serif;
             font-size: 16px;
             line-height: 1.6;
-            color:black;
+            color: black;
         }
     </style>
 </head>
+
 <body>
     <nav>
         <section class="nav-section">
-    <img class="header-logo" src="./img/N.png" alt="logo" >
-        <a href="index.html">Home</a>
-        <a href="whatson.html">What's On</a>
-        <a href="aboutus.html">About Us</a> 
-        <a href="socials.html">Socials</a></section>  
-      
-        <a class="ticket-button" href="tickets.html">TICKETS</a>
-</nav>
-    
+            <img class="header-logo" src="./img/N.png" alt="logo">
+            <a href="index.html">Home</a>
+            <a href="whatson.html">What's On</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="socials.html">Socials</a>
+        </section>
+
+        <a class="ticket-button" href="tickets.html">Ticket</a>
+    </nav>
+
     <main class="indexmain">
-<header>
-    Nxt Museum
-</header>
-<p>
-    The home of new media art.
-    Discover large scale, multi-sensory exhibitions which challenge assumptions and open minds.
-    We seek, show and question what is Nxt.
-</p>
-</main>
+        <header>
+            Nxt Museum
+        </header>
+        <p>
+            The home of new media art.
+            Discover large scale, multi-sensory exhibitions which challenge assumptions and open minds.
+            We seek, show and question what is Nxt.
+        </p>
 
-  
+        
+    <!-- Language Selector -->
+    <select id="langSelector">
+        <option value="nl">NL</option>
+        <option value="en">EN</option>
+    </select>
 
-<!-- Language Selector -->
-<select id="langSelector">
-    <option value="nl">NL</option>
-    <option value="en">EN</option>
-</select>
+    <!-- Content to be translated -->
+    <div id="content">
+        <p>Example Dutch content</p>
+    </div>
+    
+    <!-- Google Translate Element -->
+    <div id="google_translate_element"></div>
+    </main>
 
-<!-- Content to be translated -->
-<div id="content">
-    <p>Example Dutch content</p>
-</div>
 
-<!-- Google Translate Element -->
-<div id="google_translate_element"></div>
 
-<script>
-    // Initialize Google Translate
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'nl', autoDisplay: false}, 'google_translate_element');
-    }
 
-    // Change language on selection change
-    document.getElementById('langSelector').addEventListener('change', function() {
-        var selectedLang = this.value;
-        var content = document.getElementById('content').innerHTML;
 
-        // Use the Google Translate API to translate the content
-        google.translate.translate({text: content, source: 'nl', target: selectedLang}, function(result) {
-            document.getElementById('content').innerHTML = result.translation;
+    <script>
+        // Initialize Google Translate
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'nl', autoDisplay: false }, 'google_translate_element');
+        }
+
+        // Change language on selection change
+        document.getElementById('langSelector').addEventListener('change', function () {
+            var selectedLang = this.value;
+            var content = document.getElementById('content').innerHTML;
+
+            // Use the Google Translate API to translate the content
+            google.translate.translate({ text: content, source: 'nl', target: selectedLang }, function (result) {
+                document.getElementById('content').innerHTML = result.translation;
+            });
         });
-    });
-</script>
+    </script>
+ 
 
 </body>
+
+
 </html>
