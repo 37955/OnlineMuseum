@@ -5,44 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Museum Website</title>
         <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <nav>
-            <section class="nav-section">
-        <img class="header-logo" src="./img/N.png" alt="logo" >
-            <a href="index.html">Home</a>
-            <a href="whatson.html">What's On</a>
-            <a href="aboutus.html">About Us</a>
-            <a href="socials.html">Socials</a></section>  
-          
-            <a class="ticket-button" href="tickets.html">Ticket</a>
-    </nav>
-    </body>
-    </html>
 
-</script>
-<a class="ticket-button" href="whatson.html"></a>
-</nav>
-<main class="ticket-button">
-<header>
-    Activities
-</header>
-<p>
-    
-</p>
-</main>
 <style>
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #0d0c0c;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start; /* Align to the left */
-        height: 100vh;
-    }
-
     .image-container {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -66,27 +30,135 @@
         object-fit: cover;
         border-radius: 8px;
     }
+
+    .slider-container {
+        position: relative;
+        max-width: 800px;
+        margin: auto;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+    }
+
+    .slider {
+        display: flex;
+        transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+
+    .sliderimg {
+        width: 100%;
+        height: auto;
+        border-radius: 15px;
+        object-fit: cover;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .prev-btn,
+    .next-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 15px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 18px;
+        border-radius: 50%;
+        transition: background-color 0.3s ease;
+    }
+
+    .prev-btn:hover,
+    .next-btn:hover {
+        background-color: #555;
+    }
+
+    .prev-btn {
+        left: 15px;
+    }
+
+    .next-btn {
+        right: 15px;
+    }
+
+    .slide-caption {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        color: #fff;
+        font-size: 20px;
+        max-width: 80%;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 15px;
+        border-radius: 10px;
+        opacity: 0.8;
+    }
 </style>
-</head>
-<body>
-<div class="image-container">
-    <div class="image">
-        <!-- You can replace this with your actual image source -->
-        <img src="https://media1.thrillophilia.com/filestore/ykhhltha7q8yd1tksayx546lg398_Sfeerbeeld-Nxt-Museum.png?w=auto&h=600" alt="Image 1">
-    </div>
-    <div class="image">
-        <!-- You can replace this with your actual image source -->
-        <img src="https://app.thefeedfactory.nl/api/assets/64896fb5e926ad084d8b087a/libby_heaney_-_iams.jpg" alt="Image 2">
-    </div>
-    <div class="image">
-        <!-- You can replace this with your actual image source -->
-        <img src="https://www.helloamsterdam.nl/app/uploads/UFO_NXT_Museum1.jpg.webp" alt="Image 3">
-    </div>
-</div>
-</body>
-</html>
-<style>
+    </head>
+    <body>
+        <nav>
+            <section class="nav-section">
+        <img class="header-logo" src="./img/Nlogo_1_100x100.png" alt="logo" >
+            <a href="index.html">Home</a>
+            <a href="whatson.html">What's On</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="socials.html">Socials</a>
+			</section>  
+          
+            <a class="ticket-button" href="tickets.html">TICKETS</a>
+			
+    </nav>
+
+
+
     
+
+
+<div class="slider-container">
+<div class="slider">
+    <img class="sliderimg" src="https://media1.thrillophilia.com/filestore/ykhhltha7q8yd1tksayx546lg398_Sfeerbeeld-Nxt-Museum.png?w=auto&h=600" alt="Image 1">
+    <img class="sliderimg" src="https://app.thefeedfactory.nl/api/assets/64896fb5e926ad084d8b087a/libby_heaney_-_iams.jpg" alt="image 2">
+    <img class="sliderimg" src="https://www.helloamsterdam.nl/app/uploads/UFO_NXT_Museum1.jpg.webp" alt="Image 3">
+    <img class="sliderimg" src="https://app.thefeedfactory.nl/api/assets/5ffee9b7b3ae551c8d70c513/db4f93b6-fcbb-4ac8-b394-a5264c8fa1a3.jpg" alt="Image 4">
+    <!-- Add more images as needed -->ebp
+</div>
+<button class="prev-btn" onclick="changeSlide(-1)">Previous</button>
+<button class="next-btn" onclick="changeSlide(1)">Next</button>
+<div class="slide-caption">Prepare to marvel at interactive light sculptures all around you. Gather your friends and family to Nxt Museum and explore the interplay of human and machine in large-scale, immersive art installations with plenty of space to run around & play!</div>
+</div>
+
+<script>
+let currentIndex = 0;
+const slider = document.querySelector('.slider');
+const totalSlides = document.querySelectorAll('.slider img').length;
+
+function changeSlide(direction) {
+    currentIndex += direction;
+
+    if (currentIndex < 0) {
+        currentIndex = totalSlides - 1;
+    } else if (currentIndex >= totalSlides) {
+        currentIndex = 0;
+    }
+
+    updateSlider();
+}
+
+function updateSlider() {
+    const translateValue = -currentIndex * 100 + '%';
+    slider.style.transform = 'translateX(' + translateValue + ')';
+}
+
+// Auto advance slides every 3 seconds (adjust as needed)
+setInterval(() => {
+    changeSlide(1);
+}, 3000);
+</script>
+
+</body>
+</html>    
     
     
        
